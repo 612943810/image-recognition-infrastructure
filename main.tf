@@ -3,7 +3,7 @@ terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "~> 3.0.2"
+      version = "4.34.0"
     }
   }
 
@@ -11,6 +11,7 @@ terraform {
 }
 
 provider "azurerm" {
+  subscription_id = var.subscription_id
   features {}
 }
 
@@ -20,4 +21,16 @@ resource "azurerm_resource_group" "ImageRecog" {
 }
 module "storage" {
   source   = "./modules/storage"
+  name     = var.name
+  location = var.location
+}
+module "cosmos" {
+  source   = "./modules/cosmos"
+  name     = var.name
+  location = var.location
+  cosmosdb_account_name = var.cosmosdb_account_name
+  databaseName = var.databaseName
+  containerName = var.containerName
+  throughput = var.throughput
+
 }

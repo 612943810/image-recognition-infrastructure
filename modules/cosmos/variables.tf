@@ -1,20 +1,13 @@
-variable "name" {
-  description = "The name of the resource group"
+variable "prefix" {
   type        = string
-  default     = "ImageRecog"
+  default     = "cosmos-db-free-tier"
+  description = "Prefix of the resource name"
 }
 
-
-variable "subscription_id" {
-  description = "The Azure subscription ID"
-  type        = string
-  default     = "30e02ab5-e6a2-4ee5-88b5-1998f6f63db8"
-  
-}
 variable "location" {
   type        = string
   default     = "East US"
-  description = "Location for infrastructure resources"
+  description = "Resource group location"
 }
 
 variable "cosmosdb_account_name" {
@@ -51,5 +44,9 @@ variable "containerName" {
   default     = "images"
   description = "Name of the Cosmos DB SQL database"
 }
-
+variable "name" {
+  description = "The name of the resource group"
+  type        = string
+  default     = "ImageRecog"
+}
 
