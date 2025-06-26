@@ -14,7 +14,10 @@ provider "azurerm" {
   features {}
 }
 
-resource "azurerm_resource_group" "primary" {
-  name     = "ImageRecog"
-  location = "eastus2"
+resource "azurerm_resource_group" "ImageRecog" {
+  name     = var.name
+  location = var.location
+}
+module "storage" {
+  source   = "./modules/storage"
 }
