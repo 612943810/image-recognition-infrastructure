@@ -5,12 +5,6 @@ variable "name" {
 }
 
 
-variable "subscription_id" {
-  description = "The Azure subscription ID"
-  type        = string
-  default     = "30e02ab5-e6a2-4ee5-88b5-1998f6f63db8"
-  
-}
 variable "location" {
   type        = string
   default     = "East US"
