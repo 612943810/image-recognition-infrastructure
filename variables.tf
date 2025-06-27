@@ -45,5 +45,14 @@ variable "containerName" {
   default     = "images"
   description = "Name of the Cosmos DB SQL database"
 }
-
+variable "cosmosdb_connection_string" {
+  description = "Cosmos DB connection string"
+  type        = string
+  default     = ""
+  validation {
+    condition     = can(regex("AccountEndpoint=.*;AccountKey=.*;", var.cosmosdb_connection_string))
+    error_message = "Cosmos DB connection string must be in the format 'AccountEndpoint=<endpoint>;AccountKey=<key>;'"
+  } 
+  
+}
 
