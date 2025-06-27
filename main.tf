@@ -23,8 +23,8 @@ module "storage" {
   name     = var.name
   location = var.location
 }
-module "cosmos" {
-  source   = "./modules/cosmos"
+module "database" {
+  source   = "./modules/database"
   name     = var.name
   location = var.location
   cosmosdb_account_name = var.cosmosdb_account_name
