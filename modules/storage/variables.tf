@@ -18,10 +18,4 @@ variable "storage_account_name" {
     error_message = "Storage account name must be between 3 and 24 characters long."
   }
 
-
 } 
- variable "primary_connection_string" {
-    description = "Primary connection string for the storage account"
-    type        = string
-    default     = ""
-  }

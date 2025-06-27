@@ -1,4 +1,4 @@
-resource "azurerm_cosmosdb_account" "imageDatabase" {
+resource "azurerm_cosmosdb_account" "cosmos_account" {
   name                      = var.cosmosdb_account_name
   location                  = var.location
   resource_group_name       = var.name
@@ -17,17 +17,17 @@ free_tier_enabled= true
   }
 
 }
-resource "azurerm_cosmosdb_sql_database" "main" {
+resource "azurerm_cosmosdb_sql_database" "imageDatabase" {
   name                = var.databaseName
-  resource_group_name = var.name
-  account_name        =var.cosmosdb_account_name
+  resource_group_name = azurerm_cosmosdb_account.cosmos_account.resource_group_name
+  account_name        = azurerm_cosmosdb_account.cosmos_account.name
   throughput          = var.throughput
 }
 resource "azurerm_cosmosdb_sql_container" "image_container" {
   name                  = var.containerName
-  resource_group_name   = var.name
-  account_name          = var.cosmosdb_account_name
-  database_name         = var.databaseName
+  resource_group_name   = azurerm_cosmosdb_account.cosmos_account.resource_group_name
+  account_name          = azurerm_cosmosdb_account.cosmos_account.name
+  database_name         = azurerm_cosmosdb_sql_database.imageDatabase.name
   partition_key_paths    = ["/definition/imageId"]
   partition_key_version = 1
   throughput            = var.throughput

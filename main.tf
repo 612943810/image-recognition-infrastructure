@@ -37,7 +37,7 @@ module "functions" {
   source                        = "./modules/functions"
   name                          = var.name
   location                      = var.location
-  primary_connection_string     = module.database.primary_connection_string
+  primary_connection_string     = module.storage.primary_connection_string
   storage_account_name          = module.storage.storage_account_name
   storage_account_access_key    = module.storage.storage_account_access_key
   cosmosdb_connection_string    = module.database.cosmosdb_connection_string

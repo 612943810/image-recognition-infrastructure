@@ -27,3 +27,16 @@ variable "primary_connection_string" {
   description = "Primary connection string for the storage account"
   type        = string
 }
+
+variable "app_service_plan_name" {
+  description = "Name of the App Service Plan"
+  type        = string
+  default     = "ImageRecogPlan"
+  
+}
+variable "function_app_name" {
+  description = "Name of the Function App"
+  type        = string
+  default     = "ImageRecogFunctionApp" 
+  
+}
