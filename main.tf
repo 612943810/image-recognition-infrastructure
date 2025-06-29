@@ -35,8 +35,8 @@ module "database" {
 }
 module "functions" {
   source                        = "./modules/functions"
-  name                          = var.name
-  location                      = var.location
+  name                          = azurerm_resource_group.ImageRecog.name
+  location                      = azurerm_resource_group.ImageRecog.location
   primary_connection_string     = module.storage.primary_connection_string
   storage_account_name          = module.storage.storage_account_name
   storage_account_access_key    = module.storage.storage_account_access_key

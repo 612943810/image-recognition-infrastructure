@@ -7,7 +7,7 @@ variable "name" {
 variable "location" {
   description = "The location of the resource group"
   type        = string
-  default     = "eastus2"
+  default     = "East US"
 }
  variable "cosmosdb_connection_string" {
   description = "Cosmos DB connection string"
